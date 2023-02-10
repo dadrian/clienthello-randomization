@@ -11,3 +11,7 @@
 The browser will randomly order extensions, subject to the `pre_shared_key` constraint in the RFC. This will reduce the risk of server and middleboxes fixating on details of current ClientHello orderings. This should make the TLS ecosystem more robust to changes.
 
 **Risks**: It is possible that browser extension ordering is already ossified. This change may cause compatibility issues with middleboxes. We will do a slow rollout and monitor breakage.
+
+**Goals**: This is not designed to prevent all fingerprint of TLS stacks. It is to ensure the ecosystem: 
+- is prepared for the structure of the ClientHello to change over time
+- does not hardcode byte-offsets / assume specific orderings of fields
